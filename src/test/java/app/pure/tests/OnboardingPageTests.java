@@ -1,5 +1,6 @@
 package app.pure.tests;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -14,6 +15,7 @@ import static com.codeborne.selenide.Selenide.*;
 @Tag("web")
 public class OnboardingPageTests extends TestBase {
     @Test
+    @AllureId("1604")
     @DisplayName("Page should have title \"THE ANONYMOUS HOOKUP APP\"")
     void titlePageTests() {
         open("");
