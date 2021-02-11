@@ -6,10 +6,14 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import static app.pure.helpers.DriverHelper.getConsoleLogs;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.not;
 
 @Tag("web")
 @Feature("Main page content")
@@ -54,6 +58,7 @@ public class MainPageTests extends TestBase {
     void consoleLogShouldNotHaveErrors() {
         open("");
 
-        // assert on SEVERE
+        String consoleLogs = getConsoleLogs();
+        assertThat(consoleLogs, not(containsString("SEVERE")));
     }
 }

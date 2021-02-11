@@ -14,13 +14,13 @@ import static com.codeborne.selenide.Selenide.*;
 @Tag("web")
 public class OnboardingPageTests extends TestBase {
     @Test
-    @DisplayName("Page should have title \"Знакомства без обязательств\"")
+    @DisplayName("Page should have title \"THE ANONYMOUS HOOKUP APP\"")
     void titlePageTests() {
         open("");
         $(byText("Check other ads")).click(); // or go strait to page
         switchTo().window(1);
 
         $("#root").shouldHave(
-                text("Знакомства без обязательств"));
+                text("THE ANONYMOUS HOOKUP APP"));
     }
 }
