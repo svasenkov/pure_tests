@@ -6,9 +6,13 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import static app.pure.helpers.DriverHelper.getConsoleLogs;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.not;
 
 
 @Feature("Onboarding page content")
@@ -24,5 +28,15 @@ public class OnboardingPageTests extends TestBase {
 
         $("#root").shouldHave(
                 text("THE ANONYMOUS HOOKUP APP"));
+    }
+
+    @Test
+    @DisplayName("Console log should not have any errors")
+    void consoleLogShouldNotHaveErrors() {
+        $(byText("Check other ads")).click(); // or go strait to page
+        switchTo().window(1);
+
+        String consoleLogs = getConsoleLogs();
+        assertThat(consoleLogs, not(containsString("SEVERE")));
     }
 }
