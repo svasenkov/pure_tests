@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 @Tag("web")
-public class MainPageTests {
+public class MainPageTests extends TestBase {
     @Test
     @DisplayName("Page should have title \"Shameless hookup dating app\"")
     void titlePageTests() {
