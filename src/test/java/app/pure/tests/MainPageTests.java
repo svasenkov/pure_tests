@@ -1,5 +1,7 @@
 package app.pure.tests;
 
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -10,20 +12,23 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 @Tag("web")
+@Feature("Main page content")
 public class MainPageTests extends TestBase {
     @Test
+    @Story("Base blocks")
     @DisplayName("Page should have title \"Shameless hookup dating app\"")
     void titlePageTests() {
-        open("/");
+        open("");
 
         $(".intro-title").shouldHave(
                 text("SHAMELESS HOOKUP DATING"));
     }
 
     @Test
+    @Story("External authorization buttons")
     @DisplayName("Login with Google/Apple buttons should appear in center of page")
     void externalAuthButtonsCenterTests() {
-        open("https://pure.app");
+        open("");
 
         $(".ios.login-button").shouldBe(visible);
         $(".android.login-button").shouldBe(visible);
@@ -34,20 +39,20 @@ public class MainPageTests extends TestBase {
     }
 
     @Test
+    @Story("External authorization buttons")
     @DisplayName("Login with Google/Apple buttons should appear in navbar")
     void externalAuthButtonsNavbarTests() {
-        open("https://pure.app");
+        open("");
 
         $("#announcement-form").scrollTo();
         $(".navbar-buttons__download.ios").shouldBe(visible);
         $(".navbar-buttons__download.android").shouldBe(visible);
     }
 
-
     @Test
     @DisplayName("Console log should not have any errors")
     void consoleLogShouldNotHaveErrors() {
-        open("https://pure.app");
+        open("");
 
         // assert on SEVERE
     }
