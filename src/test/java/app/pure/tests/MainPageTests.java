@@ -17,13 +17,13 @@ import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.not;
 
 @Tag("web")
-@Feature("Main page content")
+//@Feature("Main page content")
 public class MainPageTests extends TestBase {
     @Test
     @AllureId("1603")
 //    @Story("Base blocks")
     @DisplayName("Page should have title \"Shameless hookup dating app\"")
-    void titlePageTests() {
+    void titlePageTest() {
         open("");
 
         $(".intro-title").shouldHave(
@@ -58,7 +58,7 @@ public class MainPageTests extends TestBase {
     }
 
     @Test
-    @AllureId("1602")
+//    @AllureId("1602")
     @DisplayName("Console log should not have any errors")
     void consoleLogShouldNotHaveErrors() {
         open("");

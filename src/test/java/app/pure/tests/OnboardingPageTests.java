@@ -18,13 +18,24 @@ import static org.hamcrest.Matchers.not;
 @Feature("Onboarding page content")
 @Tag("web")
 public class OnboardingPageTests extends TestBase {
+
+    @Test
+    @AllureId("1604")
+    @DisplayName("Page should be opened from Main page")
+    void shouldBeOpenedFromMainPageTest() {
+        open("");
+        $(byText("Check other ads")).click();
+        switchTo().window(1);
+
+        $("#root").shouldHave(
+                text("THE ANONYMOUS HOOKUP APP"));
+    }
+
     @Test
     @AllureId("1604")
     @DisplayName("Page should have title \"THE ANONYMOUS HOOKUP APP\"")
-    void titlePageTests() {
-        open("");
-        $(byText("Check other ads")).click(); // or go strait to page
-        switchTo().window(1);
+    void titlePageTest() {
+        open("/app/ru/onboarding");
 
         $("#root").shouldHave(
                 text("THE ANONYMOUS HOOKUP APP"));
@@ -33,8 +44,7 @@ public class OnboardingPageTests extends TestBase {
     @Test
     @DisplayName("Console log should not have any errors")
     void consoleLogShouldNotHaveErrors() {
-        $(byText("Check other ads")).click(); // or go strait to page
-        switchTo().window(1);
+        open("/app/ru/onboarding");
 
         String consoleLogs = getConsoleLogs();
         assertThat(consoleLogs, not(containsString("SEVERE")));
