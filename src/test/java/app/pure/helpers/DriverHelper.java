@@ -18,7 +18,8 @@ import static org.openqa.selenium.logging.LogType.BROWSER;
 public class DriverHelper {
 
     public static void configureDriver() {
-        addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
+        addListener("AllureSelenide", new AllureSelenide()
+                .screenshots(true).savePageSource(true));
 
         Configuration.browser = CustomWebDriver.class.getName();
         Configuration.baseUrl = getWebUrl();

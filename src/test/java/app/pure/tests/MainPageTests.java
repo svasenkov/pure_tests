@@ -14,7 +14,7 @@ public class MainPageTests extends TestBase {
     @Test
     @DisplayName("Page should have title \"Shameless hookup dating app\"")
     void titlePageTests() {
-        open("https://pure.app");
+        open("/");
 
         $(".intro-title").shouldHave(
                 text("SHAMELESS HOOKUP DATING"));
