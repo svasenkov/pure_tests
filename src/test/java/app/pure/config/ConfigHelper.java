@@ -50,7 +50,7 @@ public class ConfigHelper {
     }
 
     public static String getWebVideoStorage() {
-        return getWebConfig().webVideoStorage();
+        return "https://" + getWebConfig().webVideoStorage() + "/video/";
     }
 
     // for web, ios, android
