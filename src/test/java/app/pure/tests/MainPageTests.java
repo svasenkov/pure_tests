@@ -20,8 +20,8 @@ import static org.hamcrest.Matchers.not;
 @Feature("Main page content")
 public class MainPageTests extends TestBase {
     @Test
-//    @AllureId("1603")
-    @Story("Base blocks")
+    @AllureId("1603")
+//    @Story("Base blocks")
     @DisplayName("Page should have title \"Shameless hookup dating app\"")
     void titlePageTests() {
         open("");
@@ -31,8 +31,8 @@ public class MainPageTests extends TestBase {
     }
 
     @Test
-//    @AllureId("1606")
-    @Story("External authorization buttons")
+    @AllureId("1606")
+//    @Story("External authorization buttons")
     @DisplayName("Login with Google/Apple buttons should appear in center of page")
     void externalAuthButtonsCenterTests() {
         open("");
@@ -46,8 +46,8 @@ public class MainPageTests extends TestBase {
     }
 
     @Test
-//    @AllureId("1608")
-    @Story("External authorization buttons")
+    @AllureId("1608")
+//    @Story("External authorization buttons")
     @DisplayName("Login with Google/Apple buttons should appear in navbar")
     void externalAuthButtonsNavbarTests() {
         open("");
@@ -58,7 +58,7 @@ public class MainPageTests extends TestBase {
     }
 
     @Test
-//    @AllureId("1602")
+    @AllureId("1602")
     @DisplayName("Console log should not have any errors")
     void consoleLogShouldNotHaveErrors() {
         open("");
