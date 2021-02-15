@@ -1,5 +1,6 @@
 package app.pure.tests;
 
+import app.pure.pages.external.GoogleAuthPage;
 import io.qameta.allure.junit5.AllureJunit5;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -15,6 +16,8 @@ import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
 @ExtendWith({AllureJunit5.class})
 @TestInstance(TestInstance.Lifecycle.PER_METHOD)
 public class TestBase {
+
+    GoogleAuthPage googleAuthPage = new GoogleAuthPage();
 
     @BeforeAll
     public static void beforeAll() {

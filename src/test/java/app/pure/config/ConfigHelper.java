@@ -46,7 +46,7 @@ public class ConfigHelper {
     }
 
     public static boolean isRemoteWebDriver() {
-        return getWebRemoteDriver() != null;
+        return getWebRemoteDriver().equals("");
     }
 
     public static String getWebVideoStorage() {
@@ -58,7 +58,19 @@ public class ConfigHelper {
         return parseBoolean(System.getProperty("video"));
     }
 
+    public static String getGoogleUsername() {
+        return getAuthorizationConfig().googleUsername();
+    }
+
+    public static String getGooglePassword() {
+        return getAuthorizationConfig().googlePassword();
+    }
+
     private static WebConfig getWebConfig() {
         return ConfigFactory.newInstance().create(WebConfig.class, System.getProperties());
+    }
+
+    private static AuthorizationConfig getAuthorizationConfig() {
+        return ConfigFactory.newInstance().create(AuthorizationConfig.class, System.getProperties());
     }
 }
