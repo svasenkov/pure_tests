@@ -10,6 +10,7 @@ import static app.pure.helpers.DriverHelper.getConsoleLogs;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
+import static io.qameta.allure.Allure.step;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.not;
@@ -20,7 +21,6 @@ import static org.hamcrest.Matchers.not;
 public class OnboardingPageTests extends TestBase {
 
     @Test
-//    @AllureId("1604")
     @DisplayName("Page should be opened from Main page")
     void shouldBeOpenedFromMainPageTest() {
         open("");
@@ -32,7 +32,6 @@ public class OnboardingPageTests extends TestBase {
     }
 
     @Test
-//    @AllureId("1604")
     @DisplayName("Page should have title \"THE ANONYMOUS HOOKUP APP\"")
     void titlePageTest() {
         open("/app/ru/onboarding");
@@ -44,9 +43,11 @@ public class OnboardingPageTests extends TestBase {
     @Test
     @DisplayName("Console log should not have any errors")
     void consoleLogShouldNotHaveErrors() {
-        open("/app/ru/onboarding");
+        step("Open onboarding page", () -> open("/app/ru/onboarding"));
 
-        String consoleLogs = getConsoleLogs();
-        assertThat(consoleLogs, not(containsString("SEVERE")));
+        step("Page should not have errors (SEVERE) in console", () -> {
+            String consoleLogs = getConsoleLogs();
+            assertThat(consoleLogs, not(containsString("SEVERE")));
+        });
     }
 }

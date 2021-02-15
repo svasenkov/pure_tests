@@ -1,5 +1,10 @@
 package app.pure.tests;
 
+import io.qameta.allure.AllureId;
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -10,9 +15,15 @@ import static com.codeborne.selenide.Selectors.by;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
+@Feature("Authorization")
+@Story("Log in")
 @Tag("web")
 public class LoginTests extends TestBase {
     @Test
+    @AllureId("1615")
+    @Tag("smoke")
+    @Description("Authorization data stored in src/test/resources/config/authorization.properties")
+    @DisplayName("Successful login Google account")
     void loginWithGoogle() {
         open("");
 

@@ -12,16 +12,17 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static io.qameta.allure.Allure.step;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.not;
 
 @Tag("web")
-//@Feature("Main page content")
+@Feature("Main page content")
 public class MainPageTests extends TestBase {
     @Test
-//    @AllureId("1603")
-//    @Story("Base blocks")
+    @AllureId("1603")
+    @Story("Base blocks")
     @DisplayName("Page should have title \"Shameless hookup dating app\"")
     void titlePageTest() {
         open("");
@@ -31,8 +32,8 @@ public class MainPageTests extends TestBase {
     }
 
     @Test
-//    @AllureId("1606")
-//    @Story("External authorization buttons")
+    @AllureId("1606")
+    @Story("External authorization buttons")
     @DisplayName("Login with Google/Apple buttons should appear in center of page")
     void externalAuthButtonsCenterTests() {
         open("");
@@ -46,8 +47,8 @@ public class MainPageTests extends TestBase {
     }
 
     @Test
-//    @AllureId("1608")
-//    @Story("External authorization buttons")
+    @AllureId("1608")
+    @Story("External authorization buttons")
     @DisplayName("Login with Google/Apple buttons should appear in navbar")
     void externalAuthButtonsNavbarTests() {
         open("");
@@ -58,12 +59,14 @@ public class MainPageTests extends TestBase {
     }
 
     @Test
-//    @AllureId("1602")
+    @AllureId("1602")
     @DisplayName("Console log should not have any errors")
     void consoleLogShouldNotHaveErrors() {
-        open("");
+        step("Open main page", () -> open(""));
 
-        String consoleLogs = getConsoleLogs();
-        assertThat(consoleLogs, not(containsString("SEVERE")));
+        step("Page should not have errors (SEVERE) in console", () -> {
+            String consoleLogs = getConsoleLogs();
+            assertThat(consoleLogs, not(containsString("SEVERE")));
+        });
     }
 }
