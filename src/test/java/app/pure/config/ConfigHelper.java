@@ -46,7 +46,7 @@ public class ConfigHelper {
     }
 
     public static boolean isRemoteWebDriver() {
-        return getWebRemoteDriver().equals("");
+        return !getWebConfig().webRemoteDriverUrl().equals("");
     }
 
     public static String getWebVideoStorage() {
