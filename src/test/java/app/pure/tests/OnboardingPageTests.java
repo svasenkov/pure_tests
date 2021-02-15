@@ -20,7 +20,7 @@ import static org.hamcrest.Matchers.not;
 public class OnboardingPageTests extends TestBase {
 
     @Test
-    @AllureId("1604")
+//    @AllureId("1604")
     @DisplayName("Page should be opened from Main page")
     void shouldBeOpenedFromMainPageTest() {
         open("");
@@ -32,7 +32,7 @@ public class OnboardingPageTests extends TestBase {
     }
 
     @Test
-    @AllureId("1604")
+//    @AllureId("1604")
     @DisplayName("Page should have title \"THE ANONYMOUS HOOKUP APP\"")
     void titlePageTest() {
         open("/app/ru/onboarding");
