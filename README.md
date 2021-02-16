@@ -25,4 +25,5 @@ Jira
 ![allure screenshot](src/test/resources/images/error.png)
 
 Telegram notification
+
 ![allure screenshot](src/test/resources/images/telegram.png)
